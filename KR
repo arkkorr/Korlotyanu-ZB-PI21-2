@@ -1,0 +1,49 @@
+#1
+def fact(x):
+  #your code here
+  if x == 1 or x == 0:
+        return 1
+    else:
+        return fact(x - 1) * x
+#2
+def filter_even(li):
+  #your code here
+  return list(filter(lambda x: x % 2 == 0, li))
+
+
+#3
+def square(li):
+  #your code here
+  return list(map(lambda x: x ** 2, li))
+  
+  
+  
+  
+#4
+def bin_search(li, element):
+  #your code here
+  o = 0
+    z = len(li) - 1
+    while z >= o:
+        mid = (z + o) // 2
+        if li[mid] > element:
+            z = mid - 1
+        elif li[mid] < element:
+            o = mid + 1
+        else:
+            return mid
+    return -1
+    
+    
+#5
+def is_palindrome(string):
+    #your code here
+    tring = ''.join(filter(lambda x: x.isalpha(), string))
+    start = 0
+    finish = len(string) - 1
+    while start != len(string) // 2:
+        if string[start].lower() != string[finish].lower():
+            return "NO"
+        start += 1
+        finish -= 1
+    return "YES"
