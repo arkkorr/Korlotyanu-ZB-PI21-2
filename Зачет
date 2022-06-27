@@ -1,0 +1,34 @@
+def merge_two_list(a, b):
+    i = 0
+    j = 0
+    amount = []
+    while i != len(a) and j != len(b):
+        if a[i] > b[j]:
+            amount.append(b[j])
+            j += 1
+        elif a[i] < b[j]:
+            amount.append(a[i])
+            i += 1
+        else:
+            amount.append(a[i])
+            amount.append(b[j])
+            i += 1
+            j += 1
+        if i == len(a):
+            amount.append(b[j])
+            j += 1
+        elif j == len(b):
+            amount.append(a[i])
+            i += 1
+
+    return amount
+
+
+def merge_sort(s):
+    if len(s) > 1:
+        mid = len(s) // 2
+        s1 = s[:mid]
+        s2 = s[mid:]
+        return merge_two_list(merge_sort(s1), merge_sort(s2))
+    else:
+        return s
